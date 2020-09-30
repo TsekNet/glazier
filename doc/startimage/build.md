@@ -2,7 +2,7 @@
 
 <!--* freshness: { owner: 'dantsek' reviewed: '2020-09-02' } *-->
 
-[TOC]
+
 
 TODO: Add external build documentation.
 

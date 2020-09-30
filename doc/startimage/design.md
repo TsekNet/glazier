@@ -2,7 +2,7 @@
 
 <!--* freshness: { owner: 'dantsek' reviewed: '2020-09-02' } *-->
 
-[TOC]
+
 
 Startimage is a standalone binary that provides Glazier the necessary parameters
 to start the Windows imaging process. Startimage does not achieve this on it's

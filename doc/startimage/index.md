@@ -2,7 +2,7 @@
 
 <!--* freshness: { owner: 'dantsek' reviewed: '2020-09-02' } *-->
 
-[TOC]
+
 
 Startimage is a standalone binary, written in Go, that identifies and sets the
 necessary parameters required to start the Glazier imaging process.
