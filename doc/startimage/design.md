@@ -1,6 +1,5 @@
 # Startimage Design
 
-<!--* freshness: { owner: 'dantsek' reviewed: '2020-09-02' } *-->
 
 [TOC]
 
