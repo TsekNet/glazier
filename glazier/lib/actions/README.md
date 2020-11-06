@@ -1,5 +1,6 @@
 # Glazier Installer Actions
 
+
 Actions are classes which the configuration handler may call to perform a
 variety of tasks during imaging.
 
@@ -231,7 +232,7 @@ to the list. This argument is optional, and being absent or null bypasses
 verification.
 
     Get:
-        - ['windows10.wim', 'c:\base.wim', '4b5b6bf0e59dadb4663ad9b4110bf0794ba24c344291f30d47467d177feb4776']
+        - ['windows10.wim', 'c:\base.wim', '4b5b6bf0e59dadb4663ad9b4110bf0794ba24c344291f30d47467d177feb4776']
 
 #### Arguments
 
@@ -615,6 +616,22 @@ Pause the installer.
 
     Sleep: [30]
     Sleep: [300, "Waiting for Group Policy to apply..."]
+
+
+### SpliceDomainJoin
+
+Leverage [Splice](https://github.com/google/splice) to join a Microsoft Active
+Directory domain without direct line of sight to a domain controller.
+
+#### Arguments
+
+*   None
+
+#### Examples
+
+```yaml
+SpliceDomainJoin: []
+```
 
 ### StartStage
 
