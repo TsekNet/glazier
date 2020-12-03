@@ -1,37 +1,82 @@
-## Welcome to GitHub Pages
+# Glazier Configuration Handlers
 
-You can use the [editor on GitHub](https://github.com/TsekNet/glazier/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+The Glazier configuration handling libraries are responsible for taking the
+configuration language as input, determining which commands apply to the current
+system, and executing them as needed.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Pre-Processing Configuration Handler
 
-### Markdown
+The Pre-Processing Configuration Handler is the core configuration handler for
+Glazier.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The goal of the pre-processing handler is to retrieve and parse all
+configuration data in advance of executing it. This allows a start-to-finish
+task list to be compiled very early-on in the imaging process. Any config
+elements which apply to the host are retained in order of discovery, while
+inapplicable items are discarded.
 
-```markdown
-Syntax highlighted code block
+The completed task list is retained on disk for the duration of the imaging
+process, and should survive expected interruptions like planned shutdowns or
+reboots.
 
-# Header 1
-## Header 2
-### Header 3
+![preprocessing diagram](https://github.com/TsekNet/glazier/blob/master/doc/setup/preprocessor.png)
 
-- Bulleted
-- List
+### Task List
 
-1. Numbered
-2. List
+The task list comprises a series of operations deemed applicable to the local
+system. The basic structure is an ordered list, where each element in the list
+maps to one element from the original config. Each top level element contains a
+dictionary of keyed data.
 
-**Bold** and _Italic_ and `Code` text
+The `data` key contains the entire original configuration element, in its
+original structure. \(Generally, an action name associated with variably typed
+content.\)
 
-[Link](url) and ![Image](src)
-```
+The task list elements may also contain additional metadata beyond the `data`
+key to aid the configuration handler in managing the tasks appropriately.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The `path` key contains the configuration filesystem path from which the command
+was originally sourced. This aids the command processor in resolving relative
+file paths.
 
-### Jekyll Themes
+### Relative File References
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/TsekNet/glazier/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+The configuration language supports relative references to files. For example,
+`#setup.bat` in a config element may refer to the file *setup.bat* in the same
+configuration directory which the config yaml was retrieved from.
 
-### Support or Contact
+With the pre-processing handler, all tasks are stored in the task list to be
+executed *eventually*. While the process initially parsing the config file is
+aware of the active remote path at the time the config was first seen, the
+libraries which subsequently execute the commands from the task list do not
+inherently know where said commands originated in the config tree.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+To account for this, the config handler stores the active remote path with each
+command element in the task list. The runner can then feed this path back into
+BuildInfo to reproduce where in the config filesystem the intake was when it
+initially located the command.
+
+### Realtime Tasks
+
+The vast majority of configuration elements should be passed through the
+configuration handler and added to the task list. Having the pre-processor
+execute commands as it finds them nullifies the benefits of establishing a
+persistent state task list. Still, there may be instances where it is desirable
+to run a command as soon as it is discovered, rather than saving it for later.
+This is particularly true in cases where the outcome of the command may actually
+influence further config parsing.
+
+One example of this behavior is the Chooser UI. End user inputs can be used to
+shape which commands are run on the system (by pinning different commands based
+on the various possible responses). If the UI were to be run from the task list,
+it would be too late to make configuration decisions based on the results.
+Instead, we mark the UI display action as realtime. This will signal the
+configuration parser to run the action immediately rather than storing it. Since
+the action occurs in realtime, the remainder of the configuration process is
+able to act on any results that were obtained.
+
+An action can be identified as realtime by setting the internal \_realtime
+property to true in the action's setup routine.
+
+    def _Setup(self):
+      self._realtime = True
