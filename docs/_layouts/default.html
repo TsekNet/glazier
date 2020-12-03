@@ -14,32 +14,32 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+        <h1><a href="{{ "/" | absolute_url }}">Glazier Documentation</a></h1>
 
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
 
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
+        <p>A tool for automating the installation of the Microsoft Windows operating system on various device platforms.</p>
 
         <p>
           <a href="{{ "/" | absolute_url }}">Home</a>
           <br />
           <a href="{{ "setup/" | relative_url }}">Setup guide</a>
           <br />
-            <a href="{{ "setup/about" | relative_url }}">Setup guide</a>
+          &nbsp;&nbsp;<a href="{{ "setup/about" | relative_url }}">About</a>
           <br />
-            <a href="{{ "setup/config_handlers" | relative_url }}">Setup guide</a>
+          &nbsp;&nbsp;<a href="{{ "setup/config_handlers" | relative_url }}">Configuration Handlers</a>
           <br />
-            <a href="{{ "setup/config_layout" | relative_url }}">Setup guide</a>
+          &nbsp;&nbsp;<a href="{{ "setup/config_layout" | relative_url }}">Configuration Layout</a>
           <br />
-            <a href="{{ "setup/new_actions" | relative_url }}">Setup guide</a>
+          &nbsp;&nbsp;<a href="{{ "setup/new_actions" | relative_url }}">Creating New Actions</a>
           <br />
           <a href="{{ "yaml/" | relative_url }}">YAML guide</a>
           <br />
-            <a href="{{ "yaml/chooser_ui" | relative_url }}">YAML guide</a>
+          &nbsp;&nbsp;<a href="{{ "yaml/chooser_ui" | relative_url }}">Chooser UI</a>
           <br />
-            <a href="{{ "yaml/tips" | relative_url }}">YAML guide</a>
+          &nbsp;&nbsp;<a href="{{ "yaml/tips" | relative_url }}">Tips</a>
           <br />
           <a href="https://groups.google.com/forum/#!forum/glazier-discuss">Mailing list</a>
           <br />
