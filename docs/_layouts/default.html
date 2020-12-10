@@ -17,15 +17,19 @@
             <img src="{{site.logo | relative_url}}" alt="Logo" />	
          {% endif %}	
          <p>{{ site.description | default: site.github.project_tagline }}</p>	
-         <ul>
+         <table>
             {% for item in include.nav %}
-               <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+               <tr>
+                  <th><a href="{{ item.url }}">{{ item.title }}</a></th>
+               </tr>
 
                {% if item.subnav %}
-                  {% include nav.html nav=item.subnav %}
+                  <tr>
+                     <th>{% include nav.html nav=item.subnav %}</th>
+                  </tr>
                {% endif %}
             {% endfor %}
-         </ul>
+         </table>
          {% if site.show_downloads %}	
             <ul class="downloads">	
                <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>	
