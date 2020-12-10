@@ -7,19 +7,19 @@ navigation:
     url: /
   - title: Setup
     url: setup
-  - title: About
+  - title:   About
     url: setup/about
-  - title: Config Handlers
+  - title:   Config Handlers
     url: setup/config_handlers
-  - title: Config Layout
+  - title:   Config Layout
     url: setup/config_layout
-  - title: New Actions
+  - title:   New Actions
     url: setup/new_actions
-  - title: Error codes
+  - title:   Error codes
     url: setup/error_codes
   - title: YAML
     url: yaml
-  - title: Chooser UI
+  - title: --Chooser UI
     url: yaml/chooser_ui
-  - title: YAML Tips
+  - title: --YAML Tips
     url: yaml/tips
