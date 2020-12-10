@@ -1,27 +1,25 @@
 theme: jekyll-theme-minimal
 show_downloads: True
-toc:
+nav:
   - title: Home
     url: /
   - title: Setup
     url: setup
-    subfolderitems:
-      - page: About
+    subnav:
+      - title: About
         url: setup/about
-      - page: About
-        url: setup/about
-      - page: Config Handlers
+      - title: Config Handlers
         url: setup/config_handlers
-      - page: Config Layout
+      - title: Config Layout
         url: setup/config_layout
-      - page: New Actions
+      - title: New Actions
         url: setup/new_actions
-      - page: Error codes
+      - title: Error codes
         url: setup/error_codes
   - title: YAML
     url: yaml
-    subfolderitems:
-      - page: Chooser UI
+    subnav:
+      - title: Chooser UI
         url: yaml/chooser_ui
       - title: YAML Tips
         url: yaml/tips
