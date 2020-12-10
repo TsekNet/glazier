@@ -1,1 +1,9 @@
 theme: jekyll-theme-minimal
+title: Glazier
+description: Glazier is a tool developed at Google for automating Windows operating system deployments.
+show_downloads: True
+navigation:
+  - title: Home
+    url: /
+  - title: Setup
+    url: setup
