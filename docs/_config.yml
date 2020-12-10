@@ -5,7 +5,9 @@ toc:
     url: /
   - title: Setup
     url: setup
-  - subfolderitems:
+    subfolderitems:
+      - page: About
+        url: setup/about
       - page: About
         url: setup/about
       - page: Config Handlers
