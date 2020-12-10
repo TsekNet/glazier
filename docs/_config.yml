@@ -23,3 +23,7 @@ navigation:
     url: yaml/chooser_ui
   - title: └─YAML Tips
     url: yaml/tips
+  - title: Mailing List 💌
+    url: https://groups.google.com/forum/#!forum/glazier-discuss
+  - title: File A Bug 🐛
+    url: https://github.com/google/glazier/issues/new
