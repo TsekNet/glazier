@@ -13,28 +13,28 @@
    <div class="wrapper">
       <header>
          <h1><a href="{{ "/" | absolute_url }}">Glazier Documentation</a></h1>
-         { % if site.logo % }
+         {% if site.logo %}
          <img src="{{site.logo | relative_url}}" alt="Logo" />
-         { % endif % }
+         {% endif %}
          <p>A tool for automating the installation of the Microsoft Windows operating system on various device platforms.</p>
          <p>
             <a href="{{ "/" | absolute_url }}">Home</a>
             <br />
             <a href="{{ "setup/" | relative_url }}">Setup guide</a>
             <br />
-            &nbsp; &nbsp; <a href="{{ "setup/about" | relative_url }}">About</a>
+            &nbsp;&nbsp;<a href="{{ "setup/about" | relative_url }}">About</a>
             <br />
-            &nbsp; &nbsp; <a href="{{ "setup/config_handlers" | relative_url }}">Configuration Handlers</a>
+            &nbsp;&nbsp;<a href="{{ "setup/config_handlers" | relative_url }}">Configuration Handlers</a>
             <br />
-            &nbsp; &nbsp; <a href="{{ "setup/config_layout" | relative_url }}">Configuration Layout</a>
+            &nbsp;&nbsp;<a href="{{ "setup/config_layout" | relative_url }}">Configuration Layout</a>
             <br />
-            &nbsp; &nbsp; <a href="{{ "setup/new_actions" | relative_url }}">Creating New Actions</a>
+            &nbsp;&nbsp;<a href="{{ "setup/new_actions" | relative_url }}">Creating New Actions</a>
             <br />
             <a href="{{ "yaml/" | relative_url }}">YAML guide</a>
             <br />
-            &nbsp; &nbsp; <a href="{{ "yaml/chooser_ui" | relative_url }}">Chooser UI</a>
+            &nbsp;&nbsp;<a href="{{ "yaml/chooser_ui" | relative_url }}">Chooser UI</a>
             <br />
-            &nbsp; &nbsp; <a href="{{ "yaml/tips" | relative_url }}">Tips</a>
+            &nbsp;&nbsp;<a href="{{ "yaml/tips" | relative_url }}">Tips</a>
             <br />
             <a href="{{ "actions" | relative_url }}">Action List</a>
             <br />
@@ -52,7 +52,7 @@
          </ul>
       </header>
       <section>
-         { { content } }
+         {{ content }}
       </section>
    </div>
 </body>
