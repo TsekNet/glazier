@@ -1,26 +1,28 @@
 theme: jekyll-theme-minimal
 show_downloads: True
-navigation:
+toc:
   - title: Home
     url: /
   - title: Setup
     url: setup
-  - title: └─About
-    url: setup/about
-  - title: └─Config Handlers
-    url: setup/config_handlers
-  - title: └─Config Layout
-    url: setup/config_layout
-  - title: └─New Actions
-    url: setup/new_actions
-  - title: └─Error codes
-    url: setup/error_codes
+  - subfolderitems:
+      - page: About
+        url: setup/about
+      - page: Config Handlers
+        url: setup/config_handlers
+      - page: Config Layout
+        url: setup/config_layout
+      - page: New Actions
+        url: setup/new_actions
+      - page: Error codes
+        url: setup/error_codes
   - title: YAML
     url: yaml
-  - title: └─Chooser UI
-    url: yaml/chooser_ui
-  - title: └─YAML Tips
-    url: yaml/tips
+    subfolderitems:
+      - page: Chooser UI
+        url: yaml/chooser_ui
+      - title: YAML Tips
+        url: yaml/tips
   - title: Mailing List 💌
     url: https://groups.google.com/forum/#!forum/glazier-discuss
   - title: File A Bug 🐛
